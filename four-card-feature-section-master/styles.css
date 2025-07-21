@@ -1,25 +1,27 @@
 html {
   font-size: 10px;
 }
+
 body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+.work-area {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(20em, 35%), auto, 8rem;
+  grid-template-rows: minmax(30em, 35%), auto, 8rem;
   grid-template-areas:
     "header"
     "main"
     "footer";
   place-items: center;
   place-content: center;
-  min-height: 100vh;
-  max-width: 1440px;
   width: 100%;
-  overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
 }
 .header {
   grid-area: header;
   text-align: center;
+  margin: 2em auto;
 }
 .main {
   grid-area: main;
@@ -27,29 +29,30 @@ body {
 .footer {
   grid-area: footer;
 }
-#title-1 {
+.title-1 {
   font-weight: 200;
-  font-size: 2rem;
 }
-#title-2 {
+.title-1,
+.title-2 {
+  font-size: clamp(2.2rem, 2vw + 1rem, 2.5rem);
+}
+.title-2 {
   font-weight: 600;
-  font-size: 2rem;
 }
-#title-p {
+.title-p {
+  width: clamp(36ch, 50vw, 60ch);
   font-weight: 400;
-  font-size: 1.2rem;
-  max-width: 35ch;
+  font-size: 1.2em;
   margin-inline: auto;
 }
 .block {
   display: flex;
   max-width: 35ch;
   flex-direction: column;
-  min-height: 14rem;
-  margin: 2rem 0;
+  min-height: 14em;
+  margin: 2em auto;
   padding: 2em;
-  box-shadow: 0 6px 15px 0 hsla(211, 36%, 59%, 0.304);
-  transition: all 0.3s ease;
+  box-shadow: 0 0.6em 1.5em 0 hsla(211, 36%, 59%, 0.304);
 }
 .block p {
   font-size: 1rem;
@@ -82,7 +85,6 @@ body {
 }
 .attribution {
   text-align: center;
-  font-family: "Poppins", sans-serif;
   font-size: 1em;
   margin: 1em;
   color: hsl(228, 12%, 48%);
@@ -100,9 +102,8 @@ body {
   .main {
     display: grid;
     grid-template-columns: repeat(3, minmax(35ch, 1fr));
-    grid-template-rows: repeat(4, minmax(19rem, 10vh));
+    grid-template-rows: repeat(4, minmax(19rem, auto));
     gap: 2rem;
-    max-width: 1400px;
     width: 90%;
     margin-inline: auto;
   }
