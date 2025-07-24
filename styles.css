@@ -1,7 +1,16 @@
+:root {
+  --paragraph-color-light: hsl(212, 6%, 44%);
+  --paragraph-color-dark: hsl(228, 12%, 48%);
+  --title-color: hsl(234, 12%, 34%);
+  --border-cyan: hsl(180, 62%, 55%);
+  --border-red: hsl(0, 78%, 62%);
+  --border-orange: hsl(34, 97%, 64%);
+  --border-blue: hsl(212, 86%, 64%);
+  --black: hsl(0, 0%, 0%);
+}
 html {
   font-size: 10px;
 }
-
 body {
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
@@ -59,7 +68,7 @@ body {
 .block p {
   font-size: 1rem;
   flex: 1;
-  color: hsl(212, 6%, 44%);
+  color: var(--paragraph-color-light);
   font-weight: 400;
   margin: 0.5em 0;
 }
@@ -67,33 +76,37 @@ body {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
-  color: hsl(234, 12%, 34%);
+  color: var(--title-color);
 }
 .block img {
   align-self: flex-end;
   width: 4em;
 }
 .cyan {
-  border-top: 0.5em solid hsl(180, 62%, 55%);
+  border-top: 0.5em solid var(--border-cyan);
 }
 .red {
-  border-top: 0.5em solid hsl(0, 78%, 62%);
+  border-top: 0.5em solid var(--border-red);
 }
 .orange {
-  border-top: 0.5em solid hsl(34, 97%, 64%);
+  border-top: 0.5em solid var(--border-orange);
 }
 .blue {
-  border-top: 0.5em solid hsl(212, 86%, 64%);
+  border-top: 0.5em solid var(--border-blue);
 }
 .attribution {
   text-align: center;
   font-size: 1em;
   margin: 1em;
-  color: hsl(228, 12%, 48%);
+  color: var(--paragraph-color-dark);
+}
+.attribution a {
+  color: var(--black);
+  text-decoration: none;
 }
 .attribution a:hover {
   transition: 150ms ease;
-  color: lightslategrey;
+  color: var(--paragraph-color-light);
 }
 @media (prefers-reduced-motion: reduce) {
   .attribution a:hover {
