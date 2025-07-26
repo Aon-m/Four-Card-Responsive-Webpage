@@ -29,15 +29,17 @@ body {
     "main"
     "footer";
   width: 100%;
+  border: 1px solid var(--border-cyan);
 }
 header {
-  margin-inline: auto;
   grid-area: header;
   text-align: center;
+  justify-self: center;
 }
 main {
   padding: 1rem;
   grid-area: main;
+  justify-self: center;
 }
 footer {
   grid-area: footer;
@@ -60,8 +62,9 @@ footer {
   font-size: 1.2rem;
 }
 .block {
+  --block-width: 35ch;
   display: flex;
-  max-width: 35ch;
+  max-width: var(--block-width);
   flex-direction: column;
   min-height: 14rem;
   padding: 2rem;
@@ -118,30 +121,28 @@ footer {
 @media screen and (min-width: 50rem) {
   main {
     display: grid;
-    grid-template-columns: repeat(3, minmax(35ch, 1fr));
-    grid-template-rows: repeat(4, 9rem);
+    grid-template-columns: repeat(3, minmax(var(--block-width), 1fr));
+    grid-template-rows: repeat(4, minmax(auto, 25%));
     width: 90%;
-    gap: 1.5rem 2rem;
     margin-inline: auto;
+    gap: clamp(1rem, 2vw, 2rem);
+    justify-content: center;
   }
   .cyan {
     grid-column: 1;
     grid-row: 2 / span 2;
-    align-self: center;
-    justify-self: flex-end;
   }
   .red {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / span 2;
   }
   .orange {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 3 / span 2;
   }
+
   .blue {
     grid-column: 3;
     grid-row: 2 / span 2;
-    align-self: center;
-    justify-self: flex-start;
   }
 }
