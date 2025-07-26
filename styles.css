@@ -7,6 +7,7 @@
   --border-orange: hsl(34, 97%, 64%);
   --border-blue: hsl(212, 86%, 64%);
   --black: hsl(0, 0%, 0%);
+  --block-width: 35ch;
 }
 html {
   margin: 0;
@@ -29,7 +30,6 @@ body {
     "main"
     "footer";
   width: 100%;
-  border: 1px solid var(--border-cyan);
 }
 header {
   grid-area: header;
@@ -62,13 +62,13 @@ footer {
   font-size: 1.2rem;
 }
 .block {
-  --block-width: 35ch;
   display: flex;
-  max-width: var(--block-width);
+  width: clamp(var(--block-width), calc(35ch + 1vw), 40ch);
   flex-direction: column;
   min-height: 14rem;
   padding: 2rem;
   box-shadow: 0 0.6rem 1.5rem 0 hsla(211, 36%, 59%, 0.304);
+  margin-block-end: 2em;
 }
 .block p {
   font-size: 1rem;
@@ -118,15 +118,18 @@ footer {
     transition: 0ms ease;
   }
 }
-@media screen and (min-width: 50rem) {
+@media screen and (min-width: 60rem) {
   main {
     display: grid;
-    grid-template-columns: repeat(3, minmax(var(--block-width), 1fr));
+    grid-template-columns: repeat(3, minmax(1fr, var(--block-width)));
     grid-template-rows: repeat(4, minmax(auto, 25%));
     width: 90%;
     margin-inline: auto;
     gap: clamp(1rem, 2vw, 2rem);
     justify-content: center;
+  }
+  .block {
+    margin-block-end: initial;
   }
   .cyan {
     grid-column: 1;
