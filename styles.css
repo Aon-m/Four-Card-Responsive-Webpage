@@ -8,6 +8,7 @@
   --border-blue: hsl(212, 86%, 64%);
   --black: hsl(0, 0%, 0%);
   --block-width: clamp(35ch, calc(35ch + 1vw), 40ch);
+  --border-shadow: hsla(211, 36%, 59%, 0.304);
 }
 html {
   margin: 0;
@@ -67,7 +68,7 @@ footer {
   width: var(--block-width);
   aspect-ratio: 1 / 0.8;
   padding: 2rem;
-  box-shadow: 0 0.6rem 1.5rem 0 hsla(211, 36%, 59%, 0.304);
+  box-shadow: 0 0.6rem 1.5rem 0 var(--border-shadow);
   margin-block-end: 2em;
 }
 .block p {
@@ -126,7 +127,7 @@ footer {
     width: 90%;
     margin-inline: auto;
     gap: clamp(1rem, 2vw, 2rem);
-    place-content: center;
+    place-content: flex-start center;
   }
   .block {
     margin-block-end: initial;
