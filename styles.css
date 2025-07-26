@@ -7,7 +7,7 @@
   --border-orange: hsl(34, 97%, 64%);
   --border-blue: hsl(212, 86%, 64%);
   --black: hsl(0, 0%, 0%);
-  --block-width: 35ch;
+  --block-width: clamp(35ch, calc(35ch + 1vw), 40ch);
 }
 html {
   margin: 0;
@@ -62,17 +62,16 @@ footer {
   font-size: 1.2rem;
 }
 .block {
-  display: flex;
-  width: clamp(var(--block-width), calc(35ch + 1vw), 40ch);
-  flex-direction: column;
-  min-height: 14rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: var(--block-width);
+  aspect-ratio: 1 / 0.8;
   padding: 2rem;
   box-shadow: 0 0.6rem 1.5rem 0 hsla(211, 36%, 59%, 0.304);
   margin-block-end: 2em;
 }
 .block p {
   font-size: 1rem;
-  flex: 1;
   color: var(--paragraph-color-light);
   font-weight: 400;
   margin: 0.5rem 0;
@@ -85,6 +84,7 @@ footer {
 }
 .block img {
   align-self: flex-end;
+  justify-self: flex-end;
   width: 4rem;
 }
 .cyan {
@@ -121,12 +121,12 @@ footer {
 @media screen and (min-width: 60rem) {
   main {
     display: grid;
-    grid-template-columns: repeat(3, minmax(1fr, var(--block-width)));
-    grid-template-rows: repeat(4, minmax(auto, 25%));
+    grid-template-columns: repeat(3, minmax(var(--block-width), auto));
+    grid-template-rows: repeat(4, minmax(7rem, auto));
     width: 90%;
     margin-inline: auto;
     gap: clamp(1rem, 2vw, 2rem);
-    justify-content: center;
+    place-content: center;
   }
   .block {
     margin-block-end: initial;
